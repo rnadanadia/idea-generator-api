@@ -1,0 +1,46 @@
+import os
+
+
+class Generator():
+    """
+    A Class that generate idea for user based GPT-3 API.
+    """
+    def __init__(self, question:str, number_of_idea: int, enhaced:bool) -> None:
+        """
+        A constructor function for Generator class.
+        :param question: A question that user want to ask.
+        :param number_of_idea: Number of idea that user want to get.
+        :param enhaced: A boolean value that indicate if user want to get enhaced idea or not.
+        """
+        self.question:str = question
+        self.number_of_idea:int = number_of_idea
+        self.enhaced:bool = enhaced
+        self.idea_list:list = []
+        self.idea_list_enhaced:list = []
+        self.isConnected:bool = None
+
+    def connect_openai(self) -> None:
+        """
+        A function that create api connection.
+        :return: A boolean value that indicate if api connection is created or not.
+        """
+        try:
+            pass
+        except:
+            self.isConnected = False
+        else:
+            
+            self.isConnected = True
+        
+
+
+    def generate_idea(self) -> None:
+        """
+        A Funtion that generate idea for user based GPT-3 API.
+        :return: None
+        """
+        pass
+
+
+
+        
