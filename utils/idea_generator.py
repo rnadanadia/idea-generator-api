@@ -5,7 +5,7 @@ class Generator():
     """
     A Class that generate idea for user based GPT-3 API.
     """
-    def __init__(self, question:str, number_of_idea: int, enhaced:bool) -> None:
+    def __init__(self, question:str, number_of_idea: int, enhaced:bool = False) -> None:
         """
         A constructor function for Generator class.
         :param question: A question that user want to ask.
@@ -18,6 +18,7 @@ class Generator():
         self.idea_list:list = []
         self.idea_list_enhaced:list = []
         self.isConnected:bool = None
+        self.api_key:str = os.getenv('OPENAI_API_KEY')
 
     def connect_openai(self) -> None:
         """
@@ -29,7 +30,6 @@ class Generator():
         except:
             self.isConnected = False
         else:
-            
             self.isConnected = True
         
 
