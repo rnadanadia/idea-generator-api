@@ -18,10 +18,9 @@ class Generator():
         self.enhaced:bool = enhaced
         self.idea_list:list = []
         self.idea_list_enhaced:list = []
-        self.isConnected:bool = None
         self.api_key:str = os.getenv('OPENAI_API_KEY')
 
-    def connect_openai(self) -> None:
+    def connect_openai(self) -> bool:
         """
         A function that create api connection.
         :return: A boolean value that indicate if api connection is created or not.
@@ -29,9 +28,9 @@ class Generator():
         try:
             openai.api_key = self.api_key
         except:
-            self.isConnected = False
+            return False
         else:
-            self.isConnected = True
+            return True
         
 
 
@@ -40,11 +39,21 @@ class Generator():
         A Funtion that generate idea for user based GPT-3 API.
         :return: None
         """
-        if self.isConnected:
+        if self.connect_openai():
             """
             If api connection is created, then generate idea.
             """
-            pass
+            if self.enhaced:
+                """
+                If user want to get enhaced idea, then generate idea with enhaced parameter.
+                """
+                # @TODO: Add a try catch block for this function. @gio
+            else:
+                """
+                If user want to get normal idea, then generate idea with normal parameter.
+                """
+
+                # @TODO: Add a try catch block for this function. @gio
         else:
             pass
 
