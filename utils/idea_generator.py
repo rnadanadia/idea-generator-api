@@ -1,4 +1,5 @@
 import os
+import openai
 
 
 class Generator():
@@ -26,7 +27,7 @@ class Generator():
         :return: A boolean value that indicate if api connection is created or not.
         """
         try:
-            pass
+            openai.api_key = self.api_key
         except:
             self.isConnected = False
         else:
@@ -39,8 +40,13 @@ class Generator():
         A Funtion that generate idea for user based GPT-3 API.
         :return: None
         """
-        pass
-
+        if self.isConnected:
+            """
+            If api connection is created, then generate idea.
+            """
+            pass
+        else:
+            pass
 
 
         
