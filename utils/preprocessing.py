@@ -19,7 +19,7 @@ class Preprocessing():
     def prepare_question(self) -> bool:
         """
         A Function that prepares usable question for GPT-3.
-        :return: The string that contains prepared output.
+        :return: The bool that return function called successfuly or not.
         """
 
         pass
@@ -27,7 +27,7 @@ class Preprocessing():
     def prepare_answer(self) -> bool:
         """
         A Function that prepares usable answer for API.
-        :return: The string that contains prepared output.
+        :return: The bool that return function called successfuly or not.
         """
 
         pass
