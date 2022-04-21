@@ -16,7 +16,7 @@ class Preprocessing():
         self.input_data:str = input_data
         self.output_data:str = None
     
-    def prepare_question(self) -> str:
+    def prepare_question(self) -> bool:
         """
         A Function that prepares usable question for GPT-3.
         :return: The string that contains prepared output.
@@ -24,7 +24,7 @@ class Preprocessing():
 
         pass
 
-    def prepare_answer(self) -> str:
+    def prepare_answer(self) -> bool:
         """
         A Function that prepares usable answer for API.
         :return: The string that contains prepared output.
