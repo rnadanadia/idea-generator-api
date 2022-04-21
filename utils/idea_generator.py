@@ -36,7 +36,7 @@ class Generator():
         
 
 
-    def generate_idea(self) -> None:
+    def generate_idea(self) -> bool:
         """
         A Funtion that generate idea for user based GPT-3 API.
         :return: None
