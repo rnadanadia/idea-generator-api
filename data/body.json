@@ -1,0 +1,6 @@
+{
+    "question": "[str]",
+    "quantity": "[int]",
+    "enhanced": "[bool]",
+    "workshop_method": "[str]"
+}
