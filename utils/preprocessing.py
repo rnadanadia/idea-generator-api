@@ -18,15 +18,23 @@ class Preprocessing():
         self.input_data:str = input_data
         self.output_data:str = None
     
-    def process_hmw() -> str:
+    def process_hmw(self) -> str:
         """ 
         A Function that prepares usable question for GPT-3 
         for the "How might we..?" workshops
         """
          # raw input from the user interface for ex. "we, cook" > {subject},{problem}
          # output for GPT3 "How might {subjet} {problem} ?"
+        input_list = self.input_data.split(',')
+        subjet = input_list[0]
+        problem = input_list[1]
+        self.output_data = f"How might {subjet} {problem}?"
 
-    def process_opposite () -> str:
+        return self.output_data 
+
+
+
+    def process_opposite (self) -> str:
     
         """ 
         A Function that prepares usable question for GPT-3 
@@ -35,7 +43,9 @@ class Preprocessing():
          # raw input from the user interface for ex. " cook" > {problem}
          # output for GPT3 "What is the opposite of how {problem} should be ?"
 
-    def process_bad_idea() -> str:
+        pass
+
+    def process_bad_idea(self) -> str:
     
         """ 
         A Function that prepares usable question for GPT-3 
@@ -44,6 +54,6 @@ class Preprocessing():
          # raw input from the user interface for ex. " cook" > {problem}
          # output for GPT3 "What is the worst possible idea about {problem} ?"
    
-        
+        pass
 
    
