@@ -4,7 +4,9 @@ import os
 
 class Preprocessing():
     """
-    A class that handles the preprocessing of the data.
+    A class that handles the preprocessing of the raw user input
+    depending on the workshop method selected
+    return : json ?(str?)
     """
 
     def __init__(self, input_data:str):
@@ -16,21 +18,32 @@ class Preprocessing():
         self.input_data:str = input_data
         self.output_data:str = None
     
-    def prepare_question(self) -> bool:
+    def process_hmw() -> str:
+        """ 
+        A Function that prepares usable question for GPT-3 
+        for the "How might we..?" workshops
         """
-        A Function that prepares usable question for GPT-3.
-        :return: The bool that return function called successfuly or not.
-        """
+         # raw input from the user interface for ex. "we, cook" > {subject},{problem}
+         # output for GPT3 "How might {subjet} {problem} ?"
 
-        pass
-
-    def prepare_answer(self) -> bool:
+    def process_opposite () -> str:
+    
+        """ 
+        A Function that prepares usable question for GPT-3 
+        for the "Opposite thinking" workshops
         """
-        A Function that prepares usable answer for API.
-        :return: The bool that return function called successfuly or not.
-        """
+         # raw input from the user interface for ex. " cook" > {problem}
+         # output for GPT3 "What is the opposite of how {problem} should be ?"
 
-        pass
+    def process_bad_idea() -> str:
+    
+        """ 
+        A Function that prepares usable question for GPT-3 
+        for the "Worst possible idea" workshops
+        """
+         # raw input from the user interface for ex. " cook" > {problem}
+         # output for GPT3 "What is the worst possible idea about {problem} ?"
+   
         
 
    
