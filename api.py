@@ -32,23 +32,28 @@ def create_idea():
     quantity = data['quantity']
     enhaced = data['enhaced']
     workshop_method = data['workshop_method']
+    
+# the below try except handle also the empty input from user, so we should always have a text gpt3
+# and I will implement this in the preprocessing.py file (checked with Maxim)
+    try:
+        prepocessing = Preprocessing(input_data=raw_question)
+    except ValueError as e:
+        return jsonify({"Error" : e}), 400
 
-    prepocessing = Preprocessing(input_data=raw_question)
-    if (prepocessing.prepare_question()):
-        prepered_question = prepocessing.output_data
-        generator = Generator(question=prepered_question, number_of_idea=quantity, enhaced=enhaced, workshop_method=workshop_method)
-        if (generator.generate_idea()):
-            if (enhaced):
-                idea_list = generator.idea_list_enhaced
-                return jsonify({'idea_list': idea_list}), 200
-            else:
-                idea_list = generator.idea_list
-                return jsonify({'idea_list': idea_list}), 200
+    #if (prepocessing.prepare_question()): > this we do not need anymore
+    prepered_question = prepocessing.output_data
+    generator = Generator(question=prepered_question, number_of_idea=quantity, enhaced=enhaced, workshop_method=workshop_method)
+    if (generator.generate_idea()):
+        if (enhaced):
+            idea_list = generator.idea_list_enhaced
+            return jsonify({'idea_list': idea_list}), 200
         else:
-            return jsonify({'message': 'No idea generated!'}), 400
-
+            idea_list = generator.idea_list
+            return jsonify({'idea_list': idea_list}), 200
     else:
-        return jsonify({'message': 'Please specify question!'}), 400
+        return jsonify({'message': 'No idea generated!'}), 400
+
+    
 
 
 if __name__ == '__main__':
