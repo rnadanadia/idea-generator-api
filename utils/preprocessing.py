@@ -25,10 +25,8 @@ class Preprocessing():
         """
          # raw input from the user interface for ex. "we, cook" > {subject},{problem}
          # output for GPT3 "How might {subjet} {problem} ?"
-        input_list = self.input_data.split(',')
-        subjet = input_list[0]
-        problem = input_list[1]
-        self.output_data = f"How might {subjet} {problem}?"
+        problem = self.input_data
+        self.output_data = f"How might we {problem}?"
 
         return self.output_data 
 
