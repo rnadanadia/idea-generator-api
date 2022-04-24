@@ -40,7 +40,7 @@ def get_card() -> list:
         regex = '^text'
         text = [v for k, v in sentence.items() if re.match(regex, k)]
         new_text = [x.replace("<p>", "").replace("</p>", "") for x in text]
-        list_of_text.append(text)
+        list_of_text.append(new_text)
         for sublist in list_of_text:
             for item in sublist:
                 flat_list.append(item)              
